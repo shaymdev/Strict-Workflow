@@ -1,10 +1,10 @@
 {
   "ext_name": {
-    "message": "Strict Workflow",
+    "message": "Strict Workflow - shay",
     "description": "Name of the extension"
   },
   "ext_description": {
-    "message": "Enforces a 25min/5min workflow: 25 minutes of distraction-free work, followed by 5 minutes of break. Repeat as necessary.",
+    "message": "Enforces a work/break workflow: X minutes of distraction-free work, followed by Y minutes of break. Repeat as necessary.",
     "description": "Description of the extension"
   },
   
@@ -31,7 +31,7 @@
   },
   
   "options_title": {
-    "message": "Strict Workflow Options",
+    "message": "Strict Workflow - shay Options",
     "description": "The title of the options page"
   },
   "options_blacklist_verb": {

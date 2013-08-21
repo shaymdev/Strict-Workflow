@@ -125,10 +125,6 @@ function Pomodoro(options) {
   this.nextMode = 'work';
   this.running = false;
 
-  this.onTimerEnd = function (timer) {
-    this.running = false;
-  }
-
   this.start = function () {
     var mostRecentMode = this.mostRecentMode, timerOptions = {};
     this.mostRecentMode = this.nextMode;
@@ -149,6 +145,16 @@ function Pomodoro(options) {
           this.currentTimer.restart();
       }
   }
+
+  this.onTimerEnd = function (timer) {
+    this.running = false;
+	console.debug('time ended, check most recent mode...');
+	if(this.mostRecentMode === 'break'){
+		console.debug('most recent mode was break, calling this.start()');
+		this.start();
+	}
+  }
+
 }
 
 Pomodoro.Timer = function Timer(pomodoro, options) {
