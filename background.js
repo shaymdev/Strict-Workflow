@@ -16,28 +16,22 @@ loadRingIfNecessary();
 function defaultPrefs() {
   return {
     siteList: [
-      'facebook.com',
-      'youtube.com',
-      'twitter.com',
-      'tumblr.com',
-      'pinterest.com',
-      'myspace.com',
-      'livejournal.com',
-      'digg.com',
-      'stumbleupon.com',
-      'reddit.com',
-      'kongregate.com',
-      'newgrounds.com',
-      'addictinggames.com',
-      'hulu.com'
+	  'localhost:8080',
+	  'google.com',
+	  'stackoverflow.com',
+	  'adobe.com',
+	  'mainman.dcs',
+	  'file:///',
+
     ],
     durations: { // in seconds
-      work: 25 * 60,
-      break: 5 * 60
+      work: 45 * 60,
+      break: 5 * 60,
+      notification: 10
     },
-    shouldRing: true,
+    shouldRing: false,
     clickRestarts: false,
-    whitelist: false
+    whitelist: true
   }
 }
 
@@ -318,6 +312,9 @@ var notification, mainPomodoro = new Pomodoro({
           this.cancel();
         };
         notification.show();
+		setTimeout(function(){
+			notification.cancel();
+		}, PREFS.notificationTime * 1000);	//make it seconds
       }
       
       if(PREFS.shouldRing) {
@@ -326,6 +323,7 @@ var notification, mainPomodoro = new Pomodoro({
       }
     },
     onStart: function (timer) {
+	  console.debug('in onStart new icon:', ICONS.ACTION.CURRENT[timer.type] );
       chrome.browserAction.setIcon({
         path: ICONS.ACTION.CURRENT[timer.type]
       });

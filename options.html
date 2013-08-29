@@ -78,10 +78,14 @@
         margin-left: 0;
       }
 
-      #durations .minutes {
+      .timeLabel {
         font-size: 85%;
         margin-right: 1.5em;
       }
+
+	  #notification-time-container {
+	  	padding-left: 45px;
+	  }
 
       .note {
         font-size: 75%;
@@ -119,18 +123,23 @@
           <span data-i18n="work" data-i18n-caps></span>:
         </label>
         <input id="work-duration" type="text" size="2" />
-        <span class="minutes" data-i18n="minutes"></span>
+        <span class="timeLabel" data-i18n="minutes"></span>
         <label for="break-duration">
           <span data-i18n="break" data-i18n-caps></span>:
         </label>
         <input id="break-duration" type="text" size="2" />
-        <span class="minutes" data-i18n="minutes"></span>
+        <span class="timeLabel" data-i18n="minutes"></span>
         <span id="time-format-error" data-i18n="options_time_format_error"></span>
       </div>
       <div>
         <input id="show-notifications" type="checkbox" />
         <label for="show-notifications" data-i18n="options_show_notifications"></label>
-      </div>
+		<div id="notification-time-container">
+		  <label for="notification-time" data-i18n="options_notification_time"></label>
+		  <input id="notification-time" type="text" size="2" />
+		  <label class="timeLabel" for="notification-time" data-i18n="seconds"></label>
+		</div>
+	  </div>
       <div>
         <input id="should-ring" type="checkbox" />
         <label for="should-ring" data-i18n="options_should_ring"></label>

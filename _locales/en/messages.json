@@ -20,6 +20,10 @@
     "message": "minutes",
     "description": "The name of the time interval representing 60 seconds"
   },
+  "seconds": {
+    "message": "seconds",
+    "description": "The name of the time interval representing 1000 milliseconds"
+  },
   
   "site_blocked_info": {
     "message": "Page blocked until a break timer starts.",
@@ -64,6 +68,10 @@
   },
   "options_show_notifications": {
     "message": "Show a notification when a timer finishes",
+    "description": "On the options page, label for the checkbox that enables/disables the notification at the end of a timer"
+  },
+  "options_notification_time": {
+    "message": "Show the notification for",
     "description": "On the options page, label for the checkbox that enables/disables the notification at the end of a timer"
   },
   "options_should_ring": {

@@ -24,6 +24,7 @@ var form = document.getElementById('options-form'),
   siteListEl = document.getElementById('site-list'),
   whitelistEl = document.getElementById('blacklist-or-whitelist'),
   showNotificationsEl = document.getElementById('show-notifications'),
+  notificationTimeEl = document.getElementById('notification-time'),
   shouldRingEl = document.getElementById('should-ring'),
   clickRestartsEl = document.getElementById('click-restarts'),
   saveSuccessfulEl = document.getElementById('save-successful'),
@@ -33,6 +34,7 @@ var form = document.getElementById('options-form'),
   
 durationEls['work'] = document.getElementById('work-duration');
 durationEls['break'] = document.getElementById('break-duration');
+durationEls['notification'] = document.getElementById('notification-time');
 
 var TIME_REGEX = /^([0-9]+)(:([0-9]{2}))?$/;
 
@@ -61,6 +63,7 @@ form.onsubmit = function () {
     siteList:           siteListEl.value.split(/\r?\n/),
     durations:          durations,
     showNotifications:  showNotificationsEl.checked,
+    notificationTime:	notificationTimeEl.value,
     shouldRing:         shouldRingEl.checked,
     clickRestarts:      clickRestartsEl.checked,
     whitelist:          whitelistEl.selectedIndex == 1
@@ -82,9 +85,20 @@ function formAltered() {
 
 siteListEl.value = background.PREFS.siteList.join("\n");
 showNotificationsEl.checked = background.PREFS.showNotifications;
+notificationTimeEl.value = background.PREFS.notificationTime;
 shouldRingEl.checked = background.PREFS.shouldRing;
 clickRestartsEl.checked = background.PREFS.clickRestarts;
 whitelistEl.selectedIndex = background.PREFS.whitelist ? 1 : 0;
+
+showNotificationsEl.onclick = function() {
+	var div = notificationTimeEl.parentNode;
+	if (div.style.display !== 'none') {
+		div.style.display = 'none';
+	}
+	else {
+		div.style.display = 'block';
+	}
+};
 
 var duration, minutes, seconds;
 for(var key in durationEls) {
