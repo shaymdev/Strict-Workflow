@@ -203,7 +203,9 @@ function locationsMatch(location, listedPattern) {
 
 function parseLocation(location) {
   var components = location.split('/');
-  return {domain: components.shift(), path: components.join('/')};
+  return { domain: components[0].split(/:/)[0],
+  			port: components[0].split(/:/)[1],
+			path: components.slice(1).join('/') };
 }
 
 function pathsMatch(test, against) {
