@@ -314,6 +314,9 @@ var notification, mainPomodoro = new Pomodoro({
         };
         notification.show();
       }
+	  if(timer.pomodoro.nextMode == 'work'){
+		  timer.pomodoro.start();
+	  }
       
       if(PREFS.shouldRing) {
         console.log("playing ring", RING);
